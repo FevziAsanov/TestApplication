@@ -1,6 +1,7 @@
 package kerchek.app.mesele.sual.testapplication.ui.posts;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
@@ -13,9 +14,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import io.reactivex.disposables.CompositeDisposable;
-import kerchek.app.mesele.sual.testapplication.App;
 import kerchek.app.mesele.sual.testapplication.R;
 import kerchek.app.mesele.sual.testapplication.data.models.Post;
+import kerchek.app.mesele.sual.testapplication.ui.post_details.PostDetailActivity;
 import kerchek.app.mesele.sual.testapplication.ui.posts.adapters.PostListAdapter;
 import kerchek.app.mesele.sual.testapplication.utils.Utils;
 
@@ -37,7 +38,7 @@ public class PostListActivity extends AppCompatActivity implements PostListContr
 
         unbinder = ButterKnife.bind(this);
         presenter = new PostListPresenter(this);
-        App.getNetComponent().inject(this);
+
         progressDialog = Utils.createProgressDialog(this);
 
         compositeDisposable = new CompositeDisposable();
@@ -100,5 +101,8 @@ public class PostListActivity extends AppCompatActivity implements PostListContr
 
     @Override
     public void showPost(Post post) {
+        Intent intent = new Intent(this, PostDetailActivity.class);
+        intent.putExtra(PostDetailActivity.POST_EXTRAS, post);
+        startActivity(intent);
     }
 }
