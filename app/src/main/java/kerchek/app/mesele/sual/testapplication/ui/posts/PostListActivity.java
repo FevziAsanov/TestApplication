@@ -91,7 +91,7 @@ public class PostListActivity extends AppCompatActivity implements PostListContr
 
     @Override
     public void showError(Throwable throwable) {
-        throwable.printStackTrace();
+        Utils.showAppropriateError(this, throwable);
     }
 
     @Override

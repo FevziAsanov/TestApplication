@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:resizeableActivity="false"
         >
         <activity
             android:name=".ui.posts.PostListActivity"
@@ -27,6 +28,7 @@
         <activity
             android:name=".ui.post_details.PostDetailActivity"
             android:screenOrientation="portrait"
+            android:launchMode="singleTask"
             >
         </activity>
     </application>

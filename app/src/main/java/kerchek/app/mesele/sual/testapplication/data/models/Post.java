@@ -1,5 +1,7 @@
 package kerchek.app.mesele.sual.testapplication.data.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
@@ -7,7 +9,8 @@ import java.io.Serializable;
  */
 
 public class Post implements Serializable {
-    private long userId;
+    @SerializedName("userId")
+    private long uId;
     private long id;
     private String title;
     private String body;
@@ -16,11 +19,11 @@ public class Post implements Serializable {
     }
 
     public long getUserId() {
-        return userId;
+        return uId;
     }
 
     public void setUserId(long userId) {
-        this.userId = userId;
+        this.uId = userId;
     }
 
     public long getId() {
@@ -50,7 +53,7 @@ public class Post implements Serializable {
     @Override
     public String toString() {
         return "Post{" +
-                "userId=" + userId +
+                "userId=" + uId +
                 ", id=" + id +
                 ", title='" + title + '\'' +
                 ", body='" + body + '\'' +

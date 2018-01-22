@@ -18,7 +18,7 @@ public interface IWebClientApi {
     @GET("comments")
     Observable<Response<List<Comment>>> getComments(@Query("postId") long postId);
 
-    @GET("comments")
+    @GET("users")
     Observable<Response<List<User>>> getUser(@Query("id") long userId);
 }
 
